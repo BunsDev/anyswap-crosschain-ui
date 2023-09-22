@@ -10,15 +10,15 @@ import Web3ReactManager from '../components/Web3ReactManager'
 // import Bridge from './Bridge'
 // import Dashboard from './Dashboard'
 
-import CrossChain from './CrossChain'
-import Bridge from './Bridge'
+// import CrossChain from './CrossChain'
+// import Bridge from './Bridge'
 
 import MergeCrossChain from './MergeCrossChain'
 import MergeCrossChainV2 from './MergeCrossChainV2'
 // import Pools from './Pools'
 // import PoolList from './Pools/poolList'
 // import CrossChainTxns from './CrossChainTxns'
-// import CrossNFT from './CroseNFT'
+import CroseNFT from './CroseNFT'
 
 import ANYFarming from './Farms/ANYFarming'
 import NoanyFarming from './Farms/NoanyFarming'
@@ -142,11 +142,12 @@ export default function App() {
               {/* <Route exact strict path="/dashboard" component={() => <Dashboard />} /> */}
               {/* <Route exact strict path="/pool" component={() => <PoolList />} />
               <Route exact strict path="/pool/add" component={() => <Pools />} />
-              <Route exact strict path="/farm" component={() => <FarmList />} />
-              <Route exact strict path="/nft" component={() => <CrossNFT />} />
-              <Route exact strict path="/cross-chain-txns" component={() => <CrossChainTxns />} /> */}
-              <Route exact strict path="/bridge" component={() => <Bridge />} />
-              <Route exact strict path={config.getCurConfigInfo().isOpenBridge ? "/router" : "/swap"} component={() => <CrossChain />} />
+        <Route exact strict path="/farm" component={() => <FarmList />} /> */}
+              <Route exact strict path="/nft" component={() => <CroseNFT />} />
+              {/* <Route exact strict path="/cross-chain-txns" component={() => <CrossChainTxns />} /> */}
+             {/* <Route exact strict path="/bridge" component={() => <Bridge />} /> */}
+              {/* <Route exact strict path={config.getCurConfigInfo().isOpenBridge ? "/router" : "/swap"} component={() => <CrossChain />} /> */}
+              <Route exact strict path={config.getCurConfigInfo().isOpenBridge ? "/router" : "/swap"} component={() => <CroseNFT />} />
               <Route
                 path={[
                   '/cross-chain-router',

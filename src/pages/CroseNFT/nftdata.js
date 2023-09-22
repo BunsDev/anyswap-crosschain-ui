@@ -252,6 +252,12 @@ const tokenList = {
         "chainId" : "250", 
         "decimals" : null, 
         "destChains" : {
+            "137" : {
+              "name" : "Pink Flamingo Social Club", 
+              "symbol" : "PFSC", 
+              "decimals" : "", 
+              "address" : "0x231e9a191598b7eba9c374118c9abcf6d2ba41df"
+            },
             "43114" : {
                 "name" : "Pink Flamingo Social Club", 
                 "symbol" : "PFSC", 
@@ -278,6 +284,12 @@ const tokenList = {
         "chainId" : "43114", 
         "decimals" : null, 
         "destChains" : {
+            "137" : {
+              "name" : "Pink Flamingo Social Club", 
+              "symbol" : "PFSC", 
+              "decimals" : "", 
+              "address" : "0x231e9a191598b7eba9c374118c9abcf6d2ba41df"
+            }, 
             "250" : {
                 "name" : "Pink Flamingo Social Club", 
                 "symbol" : "PFSC", 
@@ -296,6 +308,93 @@ const tokenList = {
         "tokenid" : "PinkFlamingo", 
         "version" : "NFTV1", 
         "logoUrl" : "", 
+        "nfttype" : "erc721"
+      }
+    },
+    "137": {
+      "0x231e9a191598b7eba9c374118c9abcf6d2ba41df": {
+        "address" : "0x231e9a191598b7eba9c374118c9abcf6d2ba41df", 
+        "chainId" : "137", 
+        "decimals" : null, 
+        "destChains" : {
+            "250" : {
+                "name" : "Pink Flamingo Social Club", 
+                "symbol" : "PFSC", 
+                "decimals" : null, 
+                "address" : "0xd761db316b5b9c9c51f7f80127497bc618e2b422"
+            }, 
+            "43114" : {
+                "name" : "Pink Flamingo Social Club", 
+                "symbol" : "PFSC", 
+                "decimals" : null, 
+                "address" : "0x5775e01002f76ac0f1c3ec516d6c849b23d4a37b"
+            }
+        }, 
+        "fee" : {
+            "feePerTransaction" : "0", 
+            "feePerUnitInBatch" : "0"
+        }, 
+        "name" : "Pink Flamingo Social Club", 
+        "priceLabel" : "", 
+        "routerToken" : "0x887230c6bfeecd0d94c467fb05e852defcbdd1bb", 
+        "symbol" : "PFSC", 
+        "tokenid" : "PinkFlamingo", 
+        "version" : "NFTV1", 
+        "logoUrl" : "", 
+        "nfttype" : "erc721"
+      }
+    },
+    "56": {
+      "0xe11d4b1f698a457b15ca4401a8f0d80d528d512e": { 
+        "address" : "0xe11d4b1f698a457b15ca4401a8f0d80d528d512e", 
+        "chainId" : "56", 
+        "decimals" : null, 
+        "destChains" : {
+            "25" : {
+                "name" : "Annex Iron Wolf", 
+                "symbol" : "AIW", 
+                "decimals" : null, 
+                "address" : "0xf0e4a9a9977dd1a05443eb92e6f588c335cff017"
+            }
+        }, 
+        "fee" : {
+            "feePerTransaction" : "0", 
+            "feePerUnitInBatch" : "0"
+        }, 
+        "name" : "Annex Iron Wolf", 
+        "priceLabel" : "", 
+        "routerToken" : "0xf2d0fa5d973edf443d43719c444ddb28a74fbb56", 
+        "symbol" : "AIW", 
+        "tokenid" : "AIW", 
+        "version" : "NFTV1", 
+        "logoUrl" : "https://www.annex.finance/images/aiw_logo_2.png", 
+        "nfttype" : "erc721"
+      }
+    },
+    "25": {
+      "0xf0e4a9a9977dd1a05443eb92e6f588c335cff017": { 
+        "address" : "0xf0e4a9a9977dd1a05443eb92e6f588c335cff017", 
+        "chainId" : "25", 
+        "decimals" : null, 
+        "destChains" : {
+            "56" : {
+                "name" : "Annex Iron Wolf", 
+                "symbol" : "AIW", 
+                "decimals" : null, 
+                "address" : "0xe11d4b1f698a457b15ca4401a8f0d80d528d512e"
+            }
+        }, 
+        "fee" : {
+            "feePerTransaction" : "0", 
+            "feePerUnitInBatch" : "0"
+        }, 
+        "name" : "Annex Iron Wolf", 
+        "priceLabel" : "", 
+        "routerToken" : "0x1d7ca62f6af49ec66f6680b8606e634e55ef22c1", 
+        "symbol" : "AIW", 
+        "tokenid" : "AIW", 
+        "version" : "NFTV1", 
+        "logoUrl" : "https://www.annex.finance/images/aiw_logo_2.png", 
         "nfttype" : "erc721"
       }
     }

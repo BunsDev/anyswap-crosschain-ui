@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import {ArrowRight} from 'react-feather'
@@ -30,12 +30,12 @@ import {selectNetwork} from '../../config/tools/methods'
 
 import {fromWei} from '../../utils/tools/tools'
 
-import NFT_DATA from './nftdata.js'
-
+// import NFT_DATA from './nftdata.js'
+import { getUrlData } from '../../utils/tools/axios'
 
 const SUPPORT_CHAIN = spportChainArr
 // console.log(SUPPORT_CHAIN)
-const nftData = NFT_DATA as any
+// const nftData = NFT_DATA as any
 
 const FlexWrapBox = styled.div`
   ${({ theme }) => theme.flexBC};
@@ -84,6 +84,7 @@ export default function CroseNFT () {
   const [selectTokenId, setSelectTokenId] = useState<any>()
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
   const [delayAction, setDelayAction] = useState<boolean>(false)
+  const [nftList, setNftList] = useState<any>({})
 
   const initBridgeToken = getInitToken()
 
@@ -91,10 +92,28 @@ export default function CroseNFT () {
     setSelectTokenId('')
   }, [chainId, selectCurrency])
 
+  const fetchNFTList = useCallback(() => {
+    // getUrlData(`${config.bridgeApi}/v3/nft?chainId=${chainId}&version=NFTV1`).then((res:any) => {
+    getUrlData(`${config.bridgeApi}/v3/nft?chainId=${1}&version=NFTV1`).then((res:any) => {
+      console.log(res)
+      if (res && res.msg === 'Success') {
+        setNftList(res.data)
+      } else {
+        setNftList({})
+      }
+    })
+  }, [1])
+
+  useEffect(() => {
+    fetchNFTList()
+  }, [fetchNFTList, 1])
+
   const tokenList = useMemo(() => {
-    if (nftData && chainId && nftData[chainId]) {
-      const list:any = nftData[chainId]
-      
+    if (nftList) {
+      const list:any = nftList
+    // if (nftData && chainId && nftData[chainId]) {
+    //   const list:any = nftData[chainId]
+
       const urlParams = (selectCurrency && selectCurrency?.chainId?.toString() === chainId?.toString() ? selectCurrency?.address : (initBridgeToken ? initBridgeToken : config.getCurChainInfo(chainId).nftInitToken))?.toLowerCase()
       // console.log(urlParams)
       let isUseToken = 0
@@ -132,7 +151,7 @@ export default function CroseNFT () {
       return list
     }
     return {}
-  }, [nftData, chainId])
+  }, [nftList, chainId])
   
   const fee = useMemo(() => {
     if (selectCurrency) {
@@ -237,7 +256,6 @@ export default function CroseNFT () {
   }, [wrapInputError, wrapInputError1155, selectCurrency])
 
   const isCrossBridge = useMemo(() => {
-    // console.log(selectTokenId)
     if (
       account
       && selectCurrency
@@ -245,11 +263,13 @@ export default function CroseNFT () {
       && selectChainId
       && selectTokenId
       && (
-        selectCurrency?.nfttype === ERC_TYPE.erc1155
-        && inputValue
-        && !isNaN(inputValue)
-        && selectTokenId?.balance
-        && Number(selectTokenId?.balance) > Number(inputValue)
+        (
+          selectCurrency?.nfttype === ERC_TYPE.erc1155
+          && inputValue
+          && !isNaN(inputValue)
+          && selectTokenId?.balance
+          && Number(selectTokenId?.balance) > Number(inputValue)
+        ) || selectCurrency?.nfttype !== ERC_TYPE.erc1155
       )
     ) {
       return false
